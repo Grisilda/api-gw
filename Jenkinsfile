@@ -29,9 +29,7 @@ pipeline {
         }
         stage('Run Container') {
             steps {
-                sh 'docker stop api_gateway'
-                sh 'docker rm api_gateway'
-                sh 'docker run -d -p 8080:8080 --link config_service:config_service --name api_gateway api_gateway_image'
+                sh 'docker run -d -p 8082:8080 --link config_service:config_service --name api_gateway api_gateway_image'
             }
         }
     }
