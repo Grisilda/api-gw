@@ -15,15 +15,6 @@ pipeline {
                 echo 'Success'
             }
         }
- 
-        stage('Deploy to Nexus') {
-            steps {
-                script {
-                    env.artifactVersion = readFile('version.txt').trim()
-                }
-                nexusPublisher nexusInstanceId: 'nexusLocal', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: "target/apigateway-${env.artifactVersion}.jar"]], mavenCoordinate: [artifactId: 'apigateway', groupId: 'apigateway', packaging: 'jar', version: "${env.artifactVersion}"]]]
-            }
-        }
 
         stage('Create artifact copy') {
             steps {
