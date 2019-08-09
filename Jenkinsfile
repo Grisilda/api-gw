@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checkout-ing project'
-                git 'https://github.com/Grisilda/api-gateway.git'
+                git 'https://github.com/Grisilda/api-gw.git'
                 echo 'Checkout Success!'
             }
         }
